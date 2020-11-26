@@ -1,0 +1,19 @@
+@startuml
+
+
+
+Actor Customer
+
+Customer -> Customer ++ : self call
+
+Cashdesk.Backoffice<--Payment.benhur.de:payment sucess + payload + puck-nr + delivery method
+Kiosk -> Payment.benhur.de: Payment Request
+Payment.benhur.de-> Payment.Cloud.Service: Request
+Payment.Cloud.Service->Payment.Terminal: Pay Request
+Payment.Terminal --> Payment.Cloud.Service:Payment Confirmed
+Payment.Cloud.Service--> Payment.benhur.de:Payload Confirmed
+Payment.benhur.de-->Kiosk:Payment Success
+
+
+
+@enduml
