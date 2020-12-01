@@ -1,12 +1,15 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from django.views.generic import (TemplateView, ListView, DetailView, CreateView, UpdateView)
+from .models import Post, Comment
+from .forms import PostForm, CommentForm
+
+from django.views.generic import (TemplateView,ListView,
+                                  DetailView,CreateView,
+                                  UpdateView,DeleteView)
+
+from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-# Create your views here.
-from mysite.blog.forms import PostForm, CommentForm
-from mysite.blog.models import Post, Comment
 
 
 class AboutView(TemplateView):

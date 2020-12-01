@@ -19,7 +19,7 @@ from django.contrib.auth import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('blogs.urls')),  # anything which is not admin goes to blog.urls.py
-    path('accounts/login/', views.login, name='login'),
-    path('accounts/öogout/', name='logout', kwargs={'next_page': '/'}),
+    path('', include('blog.urls')),  # anything which is not admin goes to blog.urls.py
+    path('accounts/login/', views.LoginView, name='login'),
+    path('accounts/logout/', views.LogoutView, name='logout', kwargs={'next_page': '/'}),
 ]
